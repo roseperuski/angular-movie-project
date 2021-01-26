@@ -30,9 +30,11 @@ interface Movie {
 @Injectable({
   providedIn: "root",
 })
+
 export class MovieApiService {
   apiKey = "42977a8dd424f3000c916b42cde6f38b";
-  url = "https://api.themoviedb.org/3/discover/movie";
+  url = "https://api.themoviedb.org/3/discover/movie"
+ // url = "https://api.themoviedb.org/3/genre/movie/list";
   movies: Movie[];
   constructor(private http: HttpClient) {}
 
@@ -40,6 +42,7 @@ export class MovieApiService {
     const requestUrl =
       this.getUrlWithAPIKey() + "&sort_by=release_date.desc&page=1"; // add whatever params you want from here: https://developers.themoviedb.org/3/discover/movie-discover
 
+    console.log(requestUrl);
     this.http.get(requestUrl).subscribe(
       (response: Response) => {
         console.log(response.results);

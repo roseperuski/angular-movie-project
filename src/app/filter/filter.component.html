@@ -1,1 +1,10 @@
-<p>filter works!</p>
+<label for="movie-filter">Movie Filter</label>
+<select name="" id="movie-filter">
+  <option value="genre">Genre</option>
+  <option value="popularity">Popularity</option>
+  <option value="favorites">Favorites</option>
+</select>
+
+<div *ngFor="let item of movieApiService.movies">{{item.title}}
+    <p>{{item.genre_ids}}</p>
+</div>
