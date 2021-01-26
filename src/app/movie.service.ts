@@ -7,7 +7,7 @@ interface Response {
   page: number;
 }
 
-interface Movie {
+export interface Movie {
   poster_path: string;
   title: string;
   // popularity: number;

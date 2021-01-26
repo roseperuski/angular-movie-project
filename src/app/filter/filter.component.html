@@ -1,11 +1,18 @@
-<label for="movie-filter">Movie Filter</label>
-<select name="" id="movie-filter">
-  <option value="genre">Genre</option>
-  <option value="popularity">Popularity</option>
-  <option value="favorites">Favorites</option>
-</select>
+<form action="">
+  <label for="movie-filter">Movie Filter</label>
+  <select name="filterBy" id="movie-filter" #movieSelect(change)='onOptionsSelected(movieSelect.value'>
+    <option [value]="genre">Genre</option>
+    <option [value]="popularity">Popularity</option>
+    <!-- <option value="favorites">Favorites</option> -->
+  </select>
+</form>
 
-<div *ngFor="let item of movieApiService.movies">{{item.title}}
-    <p>{{item.genre_ids}}</p>
-    <img [src]="item.poster_path" alt="">
+<div *ngFor="let item of movieApiService.movies">
+  {{ item.title }}
+  <p>{{ item.genre_ids }}</p>
+  <img [src]="item.poster_path" alt="" />
 </div>
+
+
+ [(ngModel)]="Id"
+ 
