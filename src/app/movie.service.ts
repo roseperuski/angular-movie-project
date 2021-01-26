@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import { title } from "process";
 
 interface Response {
   results: Movie[];
@@ -12,6 +13,7 @@ interface Movie {
   // popularity: number;
   genre_ids: number[];
   vote_average: number;
+  adult: boolean;
   
   
   // release_date: string;
@@ -35,18 +37,33 @@ export class MovieApiService {
   apiKey = "42977a8dd424f3000c916b42cde6f38b";
   url = "https://api.themoviedb.org/3/discover/movie"
  // url = "https://api.themoviedb.org/3/genre/movie/list";
-  movies: Movie[];
+  public movies: Movie[]=[];
   constructor(private http: HttpClient) {}
 
   getMovies() {
     const requestUrl =
-      this.getUrlWithAPIKey() + "&sort_by=release_date.desc&page=1"; // add whatever params you want from here: https://developers.themoviedb.org/3/discover/movie-discover
+      this.getUrlWithAPIKey(); // add whatever params you want from here: https://developers.themoviedb.org/3/discover/movie-discover
 
-    console.log(requestUrl);
+    
     this.http.get(requestUrl).subscribe(
       (response: Response) => {
         console.log(response.results);
-        this.movies = response.results;
+        //this.movies = response.results;
+        const movies2 = response.results;
+
+        for(let movie of movies2){
+          const movieResult : Movie = {
+            poster_path:"https://image.tmdb.org/t/p/w500" + movie.poster_path,
+            title: movie.title,
+            genre_ids: movie.genre_ids,
+            vote_average: movie.vote_average,
+            adult: movie.adult
+          }
+          if(movieResult.adult===false){
+            this.movies.push(movieResult);
+          }
+          
+        }
       },
       (error) => {
         console.error(error);
