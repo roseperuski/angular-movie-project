@@ -69,15 +69,19 @@ export class FilterComponent implements OnInit {
 
   getMoviesOfGenre(genreId: string) : Movie[]{
     const genre= genreId;
+    //let theseMovies[] : Movie []=[];
     let allMovies= this.movieApiService.movies;
-    console.log(allMovies);
-    // return allMovies.filter((todo) => {
-  
-    //    return allMovies.genre_id.includes(genre);
-    //  });
+    console.log(allMovies[0].genre_ids);
     
+    for (const movie of allMovies) {
+      movie.genre_ids.filter((mvie) => {
+        return 
+      })
+      
+    }
 
-
+    
+    
   }
 
 }
