@@ -53,7 +53,7 @@ export class FilterComponent implements OnInit {
   }
 
   onGenreSelected (event: any){
-    this.genreDisplay=false;
+    this.theseMovies=[];
     this.moviesDisplay=false;
     
     let genreSelection = this.selectedGenre = event.target.value;
