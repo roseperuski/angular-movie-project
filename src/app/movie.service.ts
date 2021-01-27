@@ -47,7 +47,7 @@ export class MovieApiService {
     
     this.http.get(requestUrl).subscribe(
       (response: Response) => {
-        console.log(response.results);
+        //console.log(response.results);
         //this.movies = response.results;
         const movies2 = response.results;
 

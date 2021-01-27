@@ -1,18 +1,55 @@
+<router-outlet></router-outlet>
 <form action="">
-  <label for="movie-filter">Movie Filter</label>
-  <select name="filterBy" id="movie-filter" #movieSelect(change)='onOptionsSelected(movieSelect.value'>
-    <option [value]="genre">Genre</option>
-    <option [value]="popularity">Popularity</option>
-    <!-- <option value="favorites">Favorites</option> -->
+  <label for="movie-filter">Movie Filter: </label>
+  <select
+    name="movieSelect"
+    id="movie-filter"
+    (change)="onOptionsSelected($event)"
+  >
+  <option value="">Choose a filter</option>
+    <option value="genre">Genre</option>
+    <option value="popularity">Popularity</option>
+    <option value="favorites">Favorites</option>
   </select>
+  
+  <div *ngIf="genreShow">
+    <label for="movie-genre">Select a genre:</label>
+    <select
+      name="genreSelect"
+      id="movie-genre"
+      (change)="onGenreSelected($event)"
+    >
+    <option value="">Choose a Genre</option>  
+    <option value="35">Comedy</option>
+      <option value="18">Drama</option>
+      <option value="878">Sci Fi</option>
+    </select>
+    
+  </div>
+
+  <div *ngIf="popularityShow">
+    <label for="movie-popularity">How do you want to see it? </label>
+    <select
+      name="popularitySelect"
+      id="movie-popularity"
+      (change)="onPopularitySelected($event)"
+    >
+    <option value="">Choose Your Poison</option>  
+    <option value="high">High-to-Low</option>
+      <option value="low">Low-to-high</option>
+      
+    </select>
+    
+  </div>
 </form>
 
-<div *ngFor="let item of movieApiService.movies">
-  {{ item.title }}
-  <p>{{ item.genre_ids }}</p>
-  <img [src]="item.poster_path" alt="" />
+<div *ngIf="moviesDisplay">
+  <div *ngFor="let item of movieApiService.movies"  >
+    {{ item.title }}
+    <p>{{ item.genre_ids }}</p>
+    <img [src]="item.poster_path" alt="" />
+  </div>
 </div>
 
 
- [(ngModel)]="Id"
- 
+
