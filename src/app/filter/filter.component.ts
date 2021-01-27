@@ -20,6 +20,8 @@ export class FilterComponent implements OnInit {
   selectedPopularity: string='';
   popularityShow: boolean=false;
   moviesDisplay: boolean=true;
+  genreDisplay: boolean=false;
+  theseMovies : Movie []=[];
 // @Output() deleted = new EventEmitter<string>();
 
   constructor(public movieApiService: MovieApiService, private router: Router) { }
@@ -51,9 +53,12 @@ export class FilterComponent implements OnInit {
   }
 
   onGenreSelected (event: any){
-    //console.log(value);
+    this.genreDisplay=false;
+    this.moviesDisplay=false;
+    
     let genreSelection = this.selectedGenre = event.target.value;
-    //console.log(this.selectedGenre);
+    genreSelection= parseInt(genreSelection);
+    console.log(genreSelection);
     this.getMoviesOfGenre(genreSelection);
   
   }
@@ -67,16 +72,21 @@ export class FilterComponent implements OnInit {
     }
   }
 
-  getMoviesOfGenre(genreId: string) : Movie[]{
-    const genre= genreId;
-    //let theseMovies[] : Movie []=[];
+  getMoviesOfGenre(genreId: number) : void{
+    this.genreDisplay=false;
+    
     let allMovies= this.movieApiService.movies;
-    console.log(allMovies[0].genre_ids);
+    
     
     for (const movie of allMovies) {
-      movie.genre_ids.filter((mvie) => {
-        return 
-      })
+      if(movie.genre_ids.includes(genreId)) {
+        this.theseMovies.push(movie);
+      }
+      }
+
+      console.log(this.theseMovies);
+      this.genreDisplay=true;
+      
       
     }
 
@@ -84,4 +94,4 @@ export class FilterComponent implements OnInit {
     
   }
 
-}
+

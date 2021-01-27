@@ -51,5 +51,14 @@
   </div>
 </div>
 
+<div *ngIf="genreDisplay">
+  
+  <div *ngFor="let item of theseMovies"  >
+    {{ item.title }}
+    <p>{{ item.genre_ids }}</p>
+    <img [src]="item.poster_path" alt="" />
+  </div>
+</div>
+
 
 
