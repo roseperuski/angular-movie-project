@@ -57,6 +57,7 @@
     {{ item.title }}
     <p>{{ item.genre_ids }}</p>
     <img [src]="item.poster_path" alt="" />
+    <span><button class="add"(click)= "addFavorite()">Add to Favorites</button></span> 
   </div>
 </div>
 
