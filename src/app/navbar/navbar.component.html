@@ -1,1 +1,6 @@
 <p>navbar works!</p>
+
+<label for="search"></label>
+<input type="text" id="search" name="search" [(ngModel)]="search" placeholder="Search">
+
+<div *ngFor="let movie of getSearchResults(); index as i">{{item.title}}</div>
