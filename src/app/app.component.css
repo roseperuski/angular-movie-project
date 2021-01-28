@@ -1,18 +1,1 @@
-body{
-  display:flex;
-  background-color: black;
-  color: white;
-  align-items: center;
-  justify-content: space-around;
 
-}
-.custom-slider-main{
-  display: flex;
-  overflow: hidden;
-  scroll-behavior: smooth;
-}
-
-.info-box{
-  width: 50px;
-  height:50px
-}
