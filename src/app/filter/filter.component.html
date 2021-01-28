@@ -11,7 +11,7 @@
     <option value="popularity">Popularity</option>
     <option value="favorites">Favorites</option>
   </select>
-  
+
   <div *ngIf="genreShow">
     <label for="movie-genre">Select a genre:</label>
     <select
@@ -19,12 +19,12 @@
       id="movie-genre"
       (change)="onGenreSelected($event)"
     >
-    <option value="">Choose a Genre</option>  
+    <option value="">Choose a Genre</option>
     <option value="35">Comedy</option>
       <option value="18">Drama</option>
       <option value="878">Sci Fi</option>
     </select>
-    
+
   </div>
 
   <div *ngIf="popularityShow">
@@ -34,12 +34,12 @@
       id="movie-popularity"
       (change)="onPopularitySelected($event)"
     >
-    <option value="">Choose Your Poison</option>  
+    <option value="">Choose Your Poison</option>
     <option value="high">High-to-Low</option>
       <option value="low">Low-to-high</option>
-      
+
     </select>
-    
+
   </div>
 </form>
 
@@ -52,7 +52,7 @@
 </div>
 
 <div *ngIf="genreDisplay">
-  
+
   <div *ngFor="let item of theseMovies"  >
     {{ item.title }}
     <p>{{ item.genre_ids }}</p>
