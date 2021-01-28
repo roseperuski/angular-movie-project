@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import {Movie} from '../movie.service'
 import {MovieApiService} from '../movie.service'
 
+
 @Component({
   selector: 'app-favorites',
   templateUrl: './favorites.component.html',
