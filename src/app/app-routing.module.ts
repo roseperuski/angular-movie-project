@@ -6,7 +6,7 @@ import {FilterComponent} from './filter/filter.component'
 
 
 const routes: Routes = [
-  {path: '', component: FilterComponent},
+  // {path: '', component: FilterComponent},
   {path: 'favorites', component: FavoritesComponent}
 ];
 
