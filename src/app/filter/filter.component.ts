@@ -9,7 +9,7 @@ import {MovieApiService} from '../movie.service'
 })
 
 export class FilterComponent implements OnInit {
-
+  
   constructor(public movieApiService: MovieApiService) { }
 
   ngOnInit(): void {

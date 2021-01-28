@@ -7,13 +7,15 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FilterComponent } from './filter/filter.component';
 import { FavoritesComponent } from './favorites/favorites.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     FilterComponent,
-    FavoritesComponent
+    FavoritesComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
