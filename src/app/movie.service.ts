@@ -37,7 +37,7 @@ export class MovieApiService {
   apiKey = "42977a8dd424f3000c916b42cde6f38b";
   url = "https://api.themoviedb.org/3/discover/movie"
  // url = "https://api.themoviedb.org/3/genre/movie/list";
-  public movies: Movie[]=[];
+    public movies: Movie[]=[];
   constructor(private http: HttpClient) {}
 
   getMovies() {

@@ -1,6 +1,7 @@
 div{
   display: flex;
-  list-style-type: row;
+  /* list-style-type: row; */
+  flex-wrap: wrap;
 }
 
 img{
@@ -9,3 +10,4 @@ img{
   padding: 5px; /* Some padding */
   width: 150px; /* Set a small width */
 }
+

@@ -14,10 +14,6 @@ export class FavoritesComponent implements OnInit {
 
     @Input() movie: Movie;
 
-   result: Movie[]= [
-    {poster_path: "soulpic", title: "Soul", genre_ids: [2,1], vote_average: 1, adult: false},
-   
-  ]
 
   removeFavorite = function(): void{
     let index = this.results.findIndex(function(remove){
@@ -35,6 +31,6 @@ export class FavoritesComponent implements OnInit {
 constructor(public movieApiService: MovieApiService) { }
 
 ngOnInit(): void {
-  this.movieApiService.getMovies();
+  // this.movieApiService.getMovies();
 }
 }
