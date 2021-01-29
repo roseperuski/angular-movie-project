@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
 import {MovieApiService} from '../movie.service';
 import {Movie} from '../movie.service'; 
 
@@ -10,20 +10,20 @@ import {Movie} from '../movie.service';
 })
 export class NavbarComponent implements OnInit {
 
-  @Input() movie: Movie
-
+  @Input() movie: Movie; 
+  @Output() searchCriteria = new EventEmitter<string>(); 
   
-  filter: string =""; 
-
-  movies = this.movieApiService.getMovies();
-  
-   getSearchResults(): Movie[] {
-    //return this.movies.filter((mov) => {
-      //const movieLower = movies.name.toLowerCase(); 
-      const filterLower = this.filter.toLocaleLowerCase(); 
-      //return movieLower.includes(filterLower); 
-    //}); 
-   }
+  public filterString: string =""; 
+  // results = this.movieApiService.getMovies();
+   
+  //  getSearchResults(): Movie[] {
+  //   console.log(this.filter); 
+  //     return this.results.filter((mov) => {
+  //      const movieLower = mov.title.toLowerCase(); 
+  //      const filterLower = this.filter.toLocaleLowerCase(); 
+  //      return movieLower.includes(filterLower);  
+  //   }); 
+  // }
 
   constructor(public movieApiService: MovieApiService) { }
 
