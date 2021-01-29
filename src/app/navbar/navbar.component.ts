@@ -2,6 +2,7 @@ import { Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
 import {MovieApiService} from '../movie.service';
 import {Movie} from '../movie.service'; 
 
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -25,6 +26,8 @@ export class NavbarComponent implements OnInit {
   //   }); 
   // }
 
+ 
+ 
   constructor(public movieApiService: MovieApiService) { }
 
   ngOnInit(): void {

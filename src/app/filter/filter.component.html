@@ -48,7 +48,8 @@
     {{ item.title }}
     <!-- <p>{{ item.genre_ids }}</p> -->
     <img [src]="item.poster_path" alt="" />
-    <button class="add"(click)= "addFavorite()">Add to Favorites</button>
+    <button class="add"(click)= "favorite(item)">Add to Favorites</button> 
+    <button (click)="selectMovie(item)">Select Movie</button>
   </div>
 </div>
 
@@ -58,10 +59,11 @@
     {{ item.title }}
     <!-- <p>{{ item.genre_ids }}</p> -->
     <img [src]="item.poster_path" alt="" />
-    <button class="add"(click)= "addFavorite()">Add to Favorites</button>
-   
+    <button class="add"(click)= "favorite(item)">Add to Favorites</button>     
+    <button (click)="selectMovie(item)">Select Movie</button>
   </div>
 </div>
 
+<app-selected-movie [movie]="selectedMovie"></app-selected-movie>
 
 

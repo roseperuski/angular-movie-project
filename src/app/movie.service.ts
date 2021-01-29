@@ -14,18 +14,8 @@ export interface Movie {
   genre_ids: number[];
   vote_average: number;
   adult: boolean;
-  
-  
-  // release_date: string;
-  
-  // id: number;
-  
-  // original_language: string;
-  
-  // backdrop_path: string;
-  
-  // vote_count: number;
-  // video: boolean;
+  overview: string;
+  runtime: number;
   
 }
 
@@ -39,6 +29,18 @@ export class MovieApiService {
  // url = "https://api.themoviedb.org/3/genre/movie/list";
     public movies: Movie[]=[];
   constructor(private http: HttpClient) {}
+
+  public favorites: Movie[] = [
+    {
+      title: "My Movie",
+      poster_path: "",
+      genre_ids: [1,2],
+      vote_average: 2,
+      adult: false,
+      overview: "",
+      runtime: 222,
+    },
+  ];
 
   getMovies() {
     const requestUrl =
@@ -57,7 +59,9 @@ export class MovieApiService {
             title: movie.title,
             genre_ids: movie.genre_ids,
             vote_average: movie.vote_average,
-            adult: movie.adult
+            adult: movie.adult,
+            overview: movie.overview,
+            runtime: movie.runtime
           }
           if(movieResult.adult===false){
             this.movies.push(movieResult);

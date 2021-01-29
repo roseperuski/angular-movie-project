@@ -24,8 +24,10 @@ export class FilterComponent implements OnInit {
   theseMovies : Movie []=[];
 // @Output() deleted = new EventEmitter<string>();
 
-  constructor(public movieApiService: MovieApiService, private router: Router) { }
+  public selectedMovie: Movie;
 
+  constructor(public movieApiService: MovieApiService, private router: Router) { }
+ 
   ngOnInit(): void {
     this.movieApiService.getMovies();
   }
@@ -46,7 +48,7 @@ export class FilterComponent implements OnInit {
     } else{
       this.genreShow=false;
       this.popularityShow=false;
-      this.router.navigate(['favorites']);
+     this.router.navigate(['favorites']);
       
 
     }
@@ -86,11 +88,18 @@ export class FilterComponent implements OnInit {
 
       console.log(this.theseMovies);
       this.genreDisplay=true;
-      
-      
+          
+    }  
+
+    favorite(movie: Movie) {
+      console.log(movie);
+      this.movieApiService.favorites.push(movie);
+      console.log(this.movieApiService.favorites);
     }
 
-    
+    selectMovie(movie: Movie) {
+      this.selectedMovie = movie;
+    }
     
   }
 

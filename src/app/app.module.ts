@@ -7,8 +7,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FilterComponent } from './filter/filter.component';
 import { FavoritesComponent } from './favorites/favorites.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FilterOptionComponent } from './filter-option/filter-option.component';
 import { FormsModule } from '@angular/forms';
+import { SelectedMovieComponent } from './selected-movie/selected-movie.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import { FormsModule } from '@angular/forms';
     NavbarComponent,
     FilterComponent,
     FavoritesComponent,
-    FilterOptionComponent
+    SelectedMovieComponent
   ],
   imports: [
     BrowserModule,
