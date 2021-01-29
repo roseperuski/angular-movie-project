@@ -4,6 +4,7 @@
     <h2>Favorites</h2>
     <div *ngFor="let favorite of movieApiService.favorites; let i = index;">
         {{favorite.title}}
+        <img src="{{favorite.poster_path}}" alt="">
         <button (click)="removeFavorite(i)"> Remove </button>
     </div>
     
