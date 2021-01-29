@@ -24,6 +24,8 @@ export class FilterComponent implements OnInit {
   theseMovies : Movie []=[];
 // @Output() deleted = new EventEmitter<string>();
 
+  public selectedMovie: Movie;
+
   constructor(public movieApiService: MovieApiService, private router: Router) { }
  
   ngOnInit(): void {
@@ -93,6 +95,10 @@ export class FilterComponent implements OnInit {
       console.log(movie);
       this.movieApiService.favorites.push(movie);
       console.log(this.movieApiService.favorites);
+    }
+
+    selectMovie(movie: Movie) {
+      this.selectedMovie = movie;
     }
     
   }

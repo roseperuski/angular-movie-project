@@ -8,6 +8,7 @@ import { FilterComponent } from './filter/filter.component';
 import { FavoritesComponent } from './favorites/favorites.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FilterOptionComponent } from './filter-option/filter-option.component';
+import { SelectedMovieComponent } from './selected-movie/selected-movie.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { FilterOptionComponent } from './filter-option/filter-option.component';
     NavbarComponent,
     FilterComponent,
     FavoritesComponent,
-    FilterOptionComponent
+    FilterOptionComponent,
+    SelectedMovieComponent
   ],
   imports: [
     BrowserModule,
