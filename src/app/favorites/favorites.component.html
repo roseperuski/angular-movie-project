@@ -1,9 +1,13 @@
 
 <!-- <li  *ngFor="let remove of results"> -->
     
- 
+    <h2>Favorites</h2>
+    <div *ngFor="let favorite of movieApiService.favorites; let i = index;">
+        {{favorite.title}}
+        <button (click)="removeFavorite(i)"> Remove </button>
+    </div>
     
      
-    <span><button class="close"(click)= "removeFavorite()">Remove from Favorites</button></span> 
+    <!-- <span><button class="close"(click)= "removeFavorite()">Remove from Favorites</button></span>  -->
 
 <!-- </li>  -->

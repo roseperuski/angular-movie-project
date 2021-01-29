@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import {MovieApiService} from '../movie.service';
 import {Movie} from '../movie.service'; 
 
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -10,21 +11,23 @@ import {Movie} from '../movie.service';
 })
 export class NavbarComponent implements OnInit {
 
-  @Input() movie: Movie
+  //  @Input() movie: Movie
 
   
-  filter: string =""; 
+  // filter: string =""; 
 
-  movies = this.movieApiService.getMovies();
+  // movies = this.movieApiService.getMovies();
   
-   getSearchResults(): Movie[] {
+    // getSearchResults(): Movie[] {
     //return this.movies.filter((mov) => {
       //const movieLower = movies.name.toLowerCase(); 
-      const filterLower = this.filter.toLocaleLowerCase(); 
+   //   const filterLower = this.filter.toLocaleLowerCase(); 
       //return movieLower.includes(filterLower); 
     //}); 
-   }
+ //  }
 
+ 
+ 
   constructor(public movieApiService: MovieApiService) { }
 
   ngOnInit(): void {

@@ -40,6 +40,16 @@ export class MovieApiService {
     public movies: Movie[]=[];
   constructor(private http: HttpClient) {}
 
+  public favorites: Movie[] = [
+    {
+      title: "My Movie",
+      poster_path: "",
+      genre_ids: [1,2],
+      vote_average: 2,
+      adult: false,
+    },
+  ];
+
   getMovies() {
     const requestUrl =
       this.getUrlWithAPIKey(); // add whatever params you want from here: https://developers.themoviedb.org/3/discover/movie-discover
