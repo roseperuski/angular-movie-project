@@ -58,8 +58,9 @@
   </div>
 </form>
 
-<div *ngIf="moviesDisplay">
-  <div *ngFor="let item of movieApiService.movies"  >
+<h2>Your Movies</h2>
+<div *ngIf="moviesDisplay" class="movie-card">
+  <div *ngFor="let item of movieApiService.movies" id="firstDivMovies" class="movie-card" >
     {{ item.title }}
     <p *ngIf="popularityDisplay"> Average Rating: {{item.vote_average}}</p>
     <p *ngIf="releaseDisplay">Release Date: {{item.release_date | date}}</p>
@@ -70,11 +71,12 @@
   </div>
 </div>
 
-<div *ngIf="genreDisplay">
+<div *ngIf="genreDisplay" class="movie-card">
 
-  <div *ngFor="let item of theseMovies"  >
+  <div *ngFor="let item of theseMovies" id="secondDivMovies" class="movie-card" >
     {{ item.title }}
-    
+    <p *ngIf="popularityDisplay"> Average Rating: {{item.vote_average}}</p>
+    <p *ngIf="releaseDisplay">Release Date: {{item.release_date | date}}</p>
     <!-- <p>{{ item.genre_ids }}</p> -->
     <img [src]="item.poster_path" alt="" />
     <button class="add"(click)= "favorite(item)">Add to Favorites</button>     

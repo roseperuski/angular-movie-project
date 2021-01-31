@@ -129,7 +129,7 @@ export class FilterComponent implements OnInit {
 
   getMoviesOfGenre(genreId: number) : void{
     this.genreDisplay=false;
-    
+    this.releaseDisplay=false;
     let allMovies= this.movieApiService.movies;
     
     
