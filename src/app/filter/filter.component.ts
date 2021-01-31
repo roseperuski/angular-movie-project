@@ -18,9 +18,13 @@ export class FilterComponent implements OnInit {
   genreShow: boolean=false;
   selectedGenre: string='';
   selectedPopularity: string='';
+  //selectedrelease: string='';
   popularityShow: boolean=false;
   moviesDisplay: boolean=true;
   genreDisplay: boolean=false;
+  popularityDisplay: boolean=false;
+  releaseShow:boolean=false;
+  releaseDisplay: boolean=false;
   theseMovies : Movie []=[];
 // @Output() deleted = new EventEmitter<string>();
 
@@ -41,15 +45,22 @@ export class FilterComponent implements OnInit {
     if(this.selectedFilter==='genre'){
       this.genreShow=true;
       this.popularityShow=false;
+      this.releaseShow=false;
+      this.popularityDisplay=false;
+      this.genreDisplay=false;
       
     } else if(this.selectedFilter==='popularity'){
       this.popularityShow=true;
       this.genreShow=false;
-    } else{
+      this.releaseShow=false;
+      this.releaseDisplay=false;
+
+    } else if (this.selectedFilter==='release'){
       this.genreShow=false;
       this.popularityShow=false;
-     this.router.navigate(['favorites']);
-      
+      this.releaseShow=true;
+      this.popularityDisplay=false;
+     
 
     }
   }
@@ -66,17 +77,59 @@ export class FilterComponent implements OnInit {
   }
 
   onPopularitySelected (event: any){
-    //console.log(value);
+    
+    this.theseMovies=this.movieApiService.movies;
     this.selectedPopularity = event.target.value;
-    console.log(this.selectedPopularity);
+    
     if(this.selectedPopularity==='high'){
       
+      this.theseMovies.sort((a,b) => (a.vote_average < b.vote_average) ? 1 :-1 );
+    //   for (const movie of this.theseMovies) {
+    //     console.log ("array sorted low to high: " + movie.vote_average);
+    // }
+      }
+    else if(this.selectedPopularity==="low")  {
+      this.theseMovies.sort((a,b) => (a.vote_average > b.vote_average) ? 1 :-1 );
+      
     }
+    else{
+
+    }
+    this.genreDisplay=true;
+    this.popularityDisplay=true;
+
+    
+  }
+
+  onReleaseSelected (event: any){
+    
+    this.theseMovies=this.movieApiService.movies;
+    this.selectedPopularity = event.target.value;
+    console.log(this.theseMovies);
+    
+    if(this.selectedPopularity==='high'){
+      
+      this.theseMovies.sort((a,b) => (a.release_date < b.release_date) ? 1 :-1 );
+      for (const movie of this.theseMovies) {
+        console.log ("array sorted low to high: " + movie.release_date);
+    }
+      }
+    else if(this.selectedPopularity==="low")  {
+      this.theseMovies.sort((a,b) => (a.release_date > b.release_date) ? 1 :-1 );
+      
+    }
+    else{
+
+    }
+    this.genreDisplay=true;
+    this.releaseDisplay=true;
+
+    
   }
 
   getMoviesOfGenre(genreId: number) : void{
     this.genreDisplay=false;
-    
+    this.releaseDisplay=false;
     let allMovies= this.movieApiService.movies;
     
     
