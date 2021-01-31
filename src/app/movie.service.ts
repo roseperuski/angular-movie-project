@@ -61,7 +61,7 @@ export class MovieApiService {
             vote_average: movie.vote_average,
             adult: movie.adult,
             overview: movie.overview,
-            runtime: movie.runtime
+            runtime: movie.runtime,
           }
           if(movieResult.adult===false){
             this.movies.push(movieResult);
