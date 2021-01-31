@@ -18,13 +18,13 @@ export class FilterComponent implements OnInit {
   genreShow: boolean=false;
   selectedGenre: string='';
   selectedPopularity: string='';
-  //selectedRuntime: string='';
+  //selectedrelease: string='';
   popularityShow: boolean=false;
   moviesDisplay: boolean=true;
   genreDisplay: boolean=false;
   popularityDisplay: boolean=false;
-  runtimeShow:boolean=false;
-  runtimeDisplay: boolean=false;
+  releaseShow:boolean=false;
+  releaseDisplay: boolean=false;
   theseMovies : Movie []=[];
 // @Output() deleted = new EventEmitter<string>();
 
@@ -45,17 +45,21 @@ export class FilterComponent implements OnInit {
     if(this.selectedFilter==='genre'){
       this.genreShow=true;
       this.popularityShow=false;
-      this.runtimeShow=false;
+      this.releaseShow=false;
+      this.popularityDisplay=false;
+      this.genreDisplay=false;
       
     } else if(this.selectedFilter==='popularity'){
       this.popularityShow=true;
       this.genreShow=false;
-      this.runtimeShow=false;
+      this.releaseShow=false;
+      this.releaseDisplay=false;
 
-    } else if (this.selectedFilter==='runtime'){
+    } else if (this.selectedFilter==='release'){
       this.genreShow=false;
       this.popularityShow=false;
-      this.runtimeShow=true;
+      this.releaseShow=true;
+      this.popularityDisplay=false;
      
 
     }
@@ -97,7 +101,7 @@ export class FilterComponent implements OnInit {
     
   }
 
-  onRuntimeSelected (event: any){
+  onReleaseSelected (event: any){
     
     this.theseMovies=this.movieApiService.movies;
     this.selectedPopularity = event.target.value;
@@ -105,20 +109,20 @@ export class FilterComponent implements OnInit {
     
     if(this.selectedPopularity==='high'){
       
-      this.theseMovies.sort((a,b) => (a.runtime < b.runtime) ? 1 :-1 );
+      this.theseMovies.sort((a,b) => (a.release_date < b.release_date) ? 1 :-1 );
       for (const movie of this.theseMovies) {
-        console.log ("array sorted low to high: " + movie.runtime);
+        console.log ("array sorted low to high: " + movie.release_date);
     }
       }
     else if(this.selectedPopularity==="low")  {
-      this.theseMovies.sort((a,b) => (a.runtime > b.runtime) ? 1 :-1 );
+      this.theseMovies.sort((a,b) => (a.release_date > b.release_date) ? 1 :-1 );
       
     }
     else{
 
     }
     this.genreDisplay=true;
-    this.runtimeDisplay=true;
+    this.releaseDisplay=true;
 
     
   }

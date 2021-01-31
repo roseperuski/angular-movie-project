@@ -16,6 +16,7 @@ export interface Movie {
   adult: boolean;
   overview: string;
   runtime: number;
+  release_date: string;
   
 }
 
@@ -39,6 +40,7 @@ export class MovieApiService {
       adult: false,
       overview: "",
       runtime: 222,
+      release_date: "2020-03-15"
     },
   ];
 
@@ -49,7 +51,7 @@ export class MovieApiService {
     
     this.http.get(requestUrl).subscribe(
       (response: Response) => {
-        //console.log(response.results);
+        console.log(response.results);
         //this.movies = response.results;
         const movies2 = response.results;
 
@@ -62,9 +64,11 @@ export class MovieApiService {
             adult: movie.adult,
             overview: movie.overview,
             runtime: movie.runtime,
+            release_date: movie.release_date
           }
           if(movieResult.adult===false){
             this.movies.push(movieResult);
+            
           }
           
         }

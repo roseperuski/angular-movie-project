@@ -9,7 +9,7 @@
   <option value="">Choose a filter</option>
     <option value="genre">Genre</option>
     <option value="popularity">Popularity</option>
-    <option value="runtime">Runtime</option>
+    <option value="release">Release Date</option>
   </select>
 
   <div *ngIf="genreShow">
@@ -42,16 +42,16 @@
 
   </div>
 
-  <div *ngIf="runtimeShow">
-    <label for="movie-runtime">How do you want to see it? </label>
+  <div *ngIf="releaseShow">
+    <label for="movie-release">How do you want to see it? </label>
     <select
-      name="runtimeSelect"
-      id="movie-runtime"
-      (change)="onRuntimeSelected($event)"
+      name="releaseSelect"
+      id="movie-release"
+      (change)="onReleaseSelected($event)"
     >
     <option value="">Choose Your Poison</option>
-    <option value="high">High-to-Low</option>
-      <option value="low">Low-to-high</option>
+    <option value="high">Latest</option>
+      <option value="low">Oldest</option>
 
     </select>
 
@@ -62,7 +62,7 @@
   <div *ngFor="let item of movieApiService.movies"  >
     {{ item.title }}
     <p *ngIf="popularityDisplay"> Average Rating: {{item.vote_average}}</p>
-    <p *ngIf="runtimeDisplay">Runtime: {{item.runtime}}</p>
+    <p *ngIf="releaseDisplay">Release Date: {{item.release_date | date}}</p>
     <!-- <p>{{ item.genre_ids }}</p> -->
     <img [src]="item.poster_path" alt="" />
     <button class="add"(click)= "favorite(item)">Add to Favorites</button> 
