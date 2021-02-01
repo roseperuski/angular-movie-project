@@ -1,8 +1,45 @@
-.close{
+/* .close{
 width: 99%;
 height: 30px;
 font-size: 18px; 
 background-color: #ff1493;
 color: white;
 border-radius: 5px;
+} */
+
+h2{
+    color: white; 
+    padding-left: 10px; 
 }
+
+img{
+    display: flex;  
+    border: 1px solid #ddd; /* Gray border */
+    border-radius: 4px;  /* Rounded border */
+    padding: 20px; /* Some padding */
+    width: 150px; /* Set a small width */
+}
+
+.movie-card{
+    color: white; 
+    display: flex; 
+    flex-direction: column; 
+    flex-wrap: wrap;
+   align-items: center;
+    margin: 20px;
+    flex: 0 1 calc(25% - 1em);
+}
+
+button{ 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    width: 150px; 
+    height: 20px;
+    background-color:  rgb(141, 0, 0);
+    color: white; 
+    border: none;
+    margin: 5px;   
+}
+

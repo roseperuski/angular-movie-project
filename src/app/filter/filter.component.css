@@ -1,15 +1,52 @@
-div{
-  display: flex;
-  /* list-style-type: row; */
-  flex-wrap: wrap;
+label{
+  color: white; 
+  padding-left: 10px; 
+}
+select{
+  background-color: rgb(171, 238, 171);
+  border-radius: 10px; 
+  padding: 5px;
+}
+
+h2{
+  color: white; 
+  padding-left: 10px; 
 }
 
 img{
+  display: flex; 
+  justify-content: space-between;
   border: 1px solid #ddd; /* Gray border */
   border-radius: 4px;  /* Rounded border */
-  padding: 5px; /* Some padding */
+  padding: 20px; /* Some padding */
   width: 150px; /* Set a small width */
 }
 
+.movie-card{
+  color: white; 
+  display: flex; 
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 20px; 
+}
 
+.cards{
+  flex: 0 1 calc(25% - 1em);
+  margin: 10px;
+}
+
+.add, .select{
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  width: 150px; 
+  height: 20px;
+  background-color:  rgb(0, 131, 238);
+  color: white; 
+  border: none;
+  margin: 5px;
+  position: relative;   
+}
 

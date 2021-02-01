@@ -60,27 +60,27 @@
 
 <h2>Your Movies</h2>
 <div *ngIf="moviesDisplay" class="movie-card">
-  <div *ngFor="let item of movieApiService.movies" id="firstDivMovies" class="movie-card" >
+  <div *ngFor="let item of movieApiService.movies" id="firstDivMovies" class="cards" >
     {{ item.title }}
     <p *ngIf="popularityDisplay"> Average Rating: {{item.vote_average}}</p>
     <p *ngIf="releaseDisplay">Release Date: {{item.release_date | date}}</p>
     <!-- <p>{{ item.genre_ids }}</p> -->
     <img [src]="item.poster_path" alt="" />
     <button class="add"(click)= "favorite(item)">Add to Favorites</button> 
-    <button (click)="selectMovie(item)">Select Movie</button>
+    <button class="select" (click)="selectMovie(item)">Select Movie</button>
   </div>
 </div>
 
 <div *ngIf="genreDisplay" class="movie-card">
 
-  <div *ngFor="let item of theseMovies" id="secondDivMovies" class="movie-card" >
+  <div *ngFor="let item of theseMovies" id="secondDivMovies" class="cards" >
     {{ item.title }}
     <p *ngIf="popularityDisplay"> Average Rating: {{item.vote_average}}</p>
     <p *ngIf="releaseDisplay">Release Date: {{item.release_date | date}}</p>
     <!-- <p>{{ item.genre_ids }}</p> -->
     <img [src]="item.poster_path" alt="" />
     <button class="add"(click)= "favorite(item)">Add to Favorites</button>     
-    <button (click)="selectMovie(item)">Select Movie</button>
+    <button class="select" (click)="selectMovie(item)">Select Movie</button>
   </div>
 </div>
 

@@ -1,10 +1,9 @@
-<p>Keepin It Reel Cinema</p>
+<h1>Keeping It Reel Cinema</h1>
+<p>Hi, User!</p>
+
 <ul>
     <li><a routerLink="">Home</a></li>
     <li><a routerLink="/favorites" >My List</a></li>
 </ul>
-
-<label for="search"></label>
-<input type="text" id="search" name="search" [(ngModel)]="filterString" placeholder="Search">
-
-<div *ngFor="let srch of movieApiService.getSearchResults(); index as i">{{srch.title}}</div>
+<label for="search">Search Movies <input type="text" id="search" name="search" [(ngModel)]="filterString" placeholder="Search"></label>
+<!-- <div *ngFor="let srch of movieApiService.getSearchResults(); index as i">{{srch.title}}</div> -->

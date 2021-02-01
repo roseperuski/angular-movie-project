@@ -72,24 +72,11 @@ export class MovieApiService {
           }
           
         }
-        console.log(this.movies);
       },
       (error) => {
         console.error(error);
       }
-   
     );
-  }
-
-  //filter: string =""; 
-  
-   getSearchResults(): Movie[] {
-    console.log(this.filterString); 
-      return this.movies.filter((mov) => {
-       const movieLower = mov.title.toLowerCase(); 
-       const filterLower = this.filterString.toLocaleLowerCase(); 
-       return movieLower.includes(filterLower);  
-    }); 
   }
 
   getUrlWithAPIKey() {
