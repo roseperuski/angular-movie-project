@@ -3,6 +3,7 @@ import {Movie} from '../movie.service'
 import {MovieApiService} from '../movie.service'
 import {Router} from '@angular/router'
 
+
 @Component({
   selector: 'app-favorites',
   templateUrl: './favorites.component.html',
@@ -12,9 +13,9 @@ import {Router} from '@angular/router'
 
 export class FavoritesComponent implements OnInit {
 
-    @Input() movie: Movie;
-
-constructor(public movieApiService: MovieApiService) { }
+     @Input() movie: Movie;
+   
+constructor(public movieApiService: MovieApiService,) { }
 
 removeFavorite(index: number) {
   this.movieApiService.favorites.splice(index, 1);

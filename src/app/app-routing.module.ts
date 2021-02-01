@@ -6,8 +6,8 @@ import {FilterComponent} from './filter/filter.component'
 
 
 const routes: Routes = [
- 
-  {path: 'favorites', component: FavoritesComponent}
+  {path: 'favorites', component: FavoritesComponent},
+  {path: '**', component: FilterComponent},
 ];
 
 @NgModule({
