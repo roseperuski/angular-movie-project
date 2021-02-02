@@ -9,7 +9,7 @@ import {Router} from '@angular/router'
   selector: 'app-filter',
   templateUrl: './filter.component.html',
   styleUrls: ['./filter.component.css'],
-  providers: [MovieApiService]
+  providers: []
 })
 
 export class FilterComponent implements OnInit {
@@ -30,7 +30,7 @@ export class FilterComponent implements OnInit {
 
   public selectedMovie: Movie;
 
-  constructor(public movieApiService: MovieApiService, private router: Router) { }
+  constructor(public movieApiService: MovieApiService,private router: Router) { }
  
   ngOnInit(): void {
     this.movieApiService.getMovies();
